@@ -36,33 +36,5 @@ def dashboard(request):
 	breacum.append(brea)
 	today = datetime.datetime.now() 
 	month = today.month 
-	noorders=Order.objects.filter(State="active",Create__month = month).count()
-	orders = Order.objects.filter(State="active")
-	nopendingorders = Order.objects.filter(State="check").count()
-	monts = [4,3,2,1,0]
-	months = []
-	for x in monts:
-		m3 = {}
-		m1 = int(2 - x)
-		m2 = month+m1
-		m3["month"] = calendar.month_name[m2]
-		months.append(m3)
-	Services = []
-	Ser = Type.objects.all()
-	Serv = []
-	for s in Ser:
-		p = {}
-		p["service"] = s.Name
-		Serv.append(p)
-		for m in monts:
-			se = {}
-			se["service"] = s.Name
-			se["color"] = s.color
-			se["month"] = None
-			se["Count"] = None
-			m1 = int(2 - m)
-			m2 = month+m1
-			se["month"] = calendar.month_name[m2]
-			se["Count"] = Service.objects.filter(Type=s,Create__month=m2).count()
-			Services.append(se)
-	return render(request, 'administration/dashboard.html',{'icon':icon,'title':title,'text':text,'pos':pos,'breacum':breacum,'noorders': noorders,'months':months,'Services':Services,'nopendingorders':nopendingorders,'Serv':Serv})
+	
+	return render(request, 'administracion/dashboard.html',{'icon':icon,'title':title,'text':text,'pos':pos,'breacum':breacum})
