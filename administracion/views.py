@@ -18,8 +18,8 @@ import calendar
 @login_required
 def dashboard(request):
 	icon = "pe-7s-graph icon-gradient bg-ripe-malin"
-	title = "Dashboard"
-	text = "Start here, you can check sumary of the sistem if you want you can push the review button."
+	title = "Principal"
+	text = "Comience aquí, puede consultar el resumen del sistema si lo desea, puede presionar el botón de revisión."
 	pos = "dashboard"
 	breacum = []
 	brea ={}
