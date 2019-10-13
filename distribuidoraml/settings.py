@@ -25,7 +25,7 @@ SECRET_KEY = '_=w=let62$#ah5b8lr8i-)saln2eqr!g^t&o7+3c7opj#a)41m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'www.embutidosml.com', '.pythonanywhere.com']
 
 LOGIN_REDIRECT_URL = '/'
 # Application definition
