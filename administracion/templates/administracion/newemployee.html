@@ -1,0 +1,492 @@
+ {% extends 'administracion/base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <h5 class="card-title">Nuevo Empleado</h5>
+
+            
+ <!--INGRESO EMPLEADOS-->
+                           
+                           
+                            
+                           <div class="tab-content">
+                               <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+                                   <div class="row">
+                                       <div class="col-lg-12 col-md-12">
+                                           <div class="main-card mb-3 card">
+                                               <div class="card-body">
+               
+                                                   <div id="smartwizard">
+                                                       <ul class="forms-wizard">
+                                                           <li>
+                                                               <a href="#step-1" data-step="1" data-intro="En este apartado se visualizaran los pasos para ingresar un empleado">
+                                                                   <em>1</em><span>Informacion Basica</span>
+                                                               </a>
+                                                           </li>
+                                                           <li>
+                                                               <a href="#step-2" >
+                                                                   <em>2</em><span>Informacion Adicional</span>
+                                                               </a>
+                                                           </li>
+                                                           <li>
+                                                               <a href="#step-3">
+                                                                   <em>3</em><span>Agregar empleado</span>
+                                                               </a>
+                                                           </li>
+                                                       </ul>
+               
+                                                       <div class="form-wizard-content">
+                                                           <div id="step-1">
+                                                               <div class="form-row">
+                                                                   
+                                                                  <form method="POST" class="col-md-10 mx-auto" id="employeeForm" >
+
+                                                        {% csrf_token %}
+                                                         {% for non_field_error in form.non_field.errors %}
+                                                        <help class="is-danger">{{ non_field_error}}</help>
+                                                         {% endfor %} 
+                                                         
+                                                    <div class="row" >
+                                                    <div class="col-md-6">
+                                                       <div class="position-relative form-group">
+                                                      <label for="Names" class="">Nombres:</label>
+                                                        <div class="input-group" data-step="2" data-intro="Debera llenar los datos que se le solicitan en cada paso">
+                                                             <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-address-card"></i></span></div>
+                                                         {{form.Names}}</div>
+                                                        
+                                                            </div>
+                                                    </div>
+                                                          
+                                                            
+                                                     <div class="col-md-6">  
+                                                     <div class="position-relative form-group">
+                                                      <label for="Names" class="">Apellidos:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                                                         {{form.Last_names}}</div>
+                                                        
+                                                            </div>  
+                                                      
+                                                    </div>
+
+                                                    </div>
+                                                    <div class="row" >
+                                                    <div class="col-md-6">
+                                                       <div class="position-relative form-group">
+                                                      <label for="Names" class="">Numero de DPI del Empleado:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-credit-card"></i></span></div>
+                                                          {{form.IdPersonal}}</div>
+                                                        
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                       <div class="position-relative form-group">
+                                                      <label for="Names" class="">Numero de telefono:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-phone-square"></i></span></div>
+                                                          {{form.Phone}}</div>
+                                                        
+                                                            </div>
+                                                    </div>
+                                                    </div>
+                                                      <div class="row" >
+                                                    <div class="col-md-6">
+                                                       <div class="position-relative form-group">
+                                                      <label for="Names" class="">Direccion:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-map-signs"></i></span></div>
+                                                         {{form.Address}}</div>
+                                                        
+                                                            </div>
+                                                    </div>
+                                                          
+                                                          <div class="col-md-6">
+                                                       <div class="position-relative form-group">
+                                                      <label for="Names" class="">Cumpleaños:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-birthday-cake"></i></span></div>
+                                                         {{form.Birthday}}</div>
+                                                        
+                                                            </div>
+                                                    </div>  
+                                                     
+
+                                                    </div>
+
+
+
+
+                                                              </div>    
+                                                             
+                                                           </div>
+                                                           <div id="step-2">
+                                                            
+                                                               
+                                                                       
+
+<br>
+
+                                              <div class="row" >
+                                                  <div class="col-md-1"> 
+                                                  </div>
+                                                          <div class="col-md-5">  
+                                                     <div class="position-relative form-group">
+                                                      <label for="Names" class="">Email:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-at"></i></span></div>
+                                                          {{form.Email}}</div>
+                                                        
+                                                            </div>  
+                                                      
+                                                    </div>
+                                                            
+                                                     <div class="col-md-5">  
+                                                     <div class="position-relative form-group">
+                                                      <label for="Names" class="">Fecha de inicio Laboral:</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-suitcase"></i></span></div>
+                                                          {{form.Start_Work}}</div>
+                                                        
+                                                            </div>  
+                                                      
+                                                    </div>
+
+                                          </div>
+                                      <div class="row" >
+                                                <div class="col-md-1"> 
+                                                                                              </div>
+                                            <div class="col-md-5">
+                                               <div class="position-relative form-group">
+                                              <label for="Names" class="">Nombre de Usuario:</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-user-circle"></i></span></div>
+                                                <input type="text" name="User" class="form-control" placeholder="Ingrese el Nombre de usuario del empleado" id="id_User" /></div>
+                                                
+                                                    </div>
+                                            </div>
+                                                  <div class="col-md-5">
+                                               <div class="position-relative form-group">
+                                              <label for="Names" class="">Tipo de Usuario:</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend input-group-lg"><span class="input-group-text"><i class="fas fa-universal-access"></i></span></div>
+                                                     <div class="input-group">
+                                                     <select name="UserType" id="UserType" class="multiselect-dropdown form-control" style="width: 400px;">
+                                                                                    <optgroup label="Tipos de Usuario">
+                                                                                        <option value="Administrador">Administrador</option>
+                                                                                        <option value="Oficina">Oficina</option>
+                                                                                        <option value="Vendedor" selected="true">Vendedor</option>
+                                                                                        <option value="Distribuidor">Distribuidor</option>
+                                                                                    </optgroup>
+                                                                                    
+                                                                                </select>
+                                                                              </div>
+                                                </div>
+                                                
+                                                    </div>
+                                            </div>
+                                                    
+                                     
+
+                                    </div>
+<br>
+                                    
+                                            <div class="row">
+                                              <div class="col-md-2"> 
+                                              </div>
+                                               <div class="col-md-4"> 
+                                                 <div class="text-center">
+                                        <img id="preview" src="{% static 'administracion/assets/images/profile.png' %}" alt="Imagen de perfil"  style="width: 150px; height: 150px;border-radius:150px;border:10px solid #666;"  />
+                                                </div>
+                                                                                              </div>
+                                                 <div class="col-md-5">
+                                                     <div class="position-relative row form-group">
+                                                      <label for="exampleFile" class="col-form-label">Imagen de Perfil</label>
+                                                          <div class="col-sm-10"><input name="file" id="ProfileImage" type="file" class="form-control-file" accept="image/*">
+                                                                <small class="form-text text-muted">Archivos(.jpg,.png.)</small>
+                                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                              </div>
+<br>
+   
+
+
+                                    <div id="accordion" class="accordion-wrapper mb-3">
+                                                                   <div class="card">
+                                                                       <div id="headingOne" class="card-header">
+                                                                           <button type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="text-left m-0 p-0 btn btn-link btn-block">
+                                                                               <span class="form-heading">Nota<p>Agregue Cualquier Nota</p></span>
+                                                                           </button>
+                                                                       </div>
+                                                                       <div data-parent="#accordion" id="collapseOne" aria-labelledby="headingOne" class="collapse show">
+                                                                           <div class="card-body">
+                                                                                <div class="position-relative form-group"><label for="exampleText" class="">Text Area</label> {{form.Note}}</div>
+                                                                               
+                                                                               </div>
+                                                                           </div>
+                                                                       </div>
+                                                                   </div>
+
+                                                               </div>
+                                                           
+                                                    </form>
+                                                           <div id="step-3">
+                                                               <div class="no-results">
+                                                                   <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                                                                       <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                                                                       <span class="swal2-success-line-tip"></span>
+                                                                       <span class="swal2-success-line-long"></span>
+                                                                       <div class="swal2-success-ring"></div>
+                                                                       <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                                                                       <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+                                                                   </div>
+                                                                   <div class="results-subtitle mt-4">Informacion Completada!</div>
+                                                                   <div class="results-title">Presione finalizar para agregar el empleado</div>
+                                                                   <div class="mt-3 mb-3"></div>
+                                                                   <div class="text-center">
+                                                                       <button class="btn-shadow btn-wide btn btn-success btn-lg" onclick="finalizar()">Finalizar</button >
+                                                                   </div>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="divider"></div>
+                                                   <div class="clearfix">
+                                                       <button type="button" id="reset-btn" class="btn-shadow float-left btn btn-link" data-step="5" data-intro="En este boton se podra eliminar los datos ya ingresados, es decir limpiar los datos de los campos">Limpiar Campos</button>
+                                                       <button type="button" id="next-btn" class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary" data-step="3" data-intro="Al finalizar el llenado de informacion de cada paso, debera presionar este boton para continuar">Siguiente</button>
+                                                       <button type="button" id="prev-btn" class="btn-shadow float-right btn-wide btn-pill mr-3 btn btn-outline-secondary" data-step="4" data-intro="En cualquier momento de llenado de formulario podra presionar este boton para regresar a un paso anterior">Anterior</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+              
+ 
+
+  
+</div>
+
+</div>
+<!--Multiselect-->
+<script src="{% static 'administracion/assets/js/vendors/form-components/bootstrap-multiselect.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<!--Datepickers-->
+<script src="{% static 'administracion/assets/js/vendors/form-components/datepicker.js' %}"></script>
+<script src="{% static 'administracion/assets/js/vendors/form-components/moment.js' %}"></script>
+
+<!--Form Validation-->
+<script src="{% static 'administracion/assets/js/vendors/form-components/form-validation.js' %}"></script>
+<script src="{% static 'administracion/assets/js/sweetalert2.js' %}"></script>
+
+<!--Form Wizard-->
+<script src="{% static 'administracion/assets/js/vendors/form-components/form-wizard.js' %}"></script>
+<script type="text/javascript">
+  function finalizar()
+    {
+      document.getElementById("employeeForm").submit();
+    }
+
+  
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#ProfileImage").change(function(){
+    readURL(this);
+});
+
+ 
+
+</script>
+<script type="text/javascript">
+  
+$( "#employeeForm" ).validate( {
+        rules: {
+            Names: "required",
+            Last_names: "required",
+            IdPersonal: {
+                required: true,
+                minlength: 13,
+                maxlength: 13,
+            },
+            Phone: {
+                required: true,
+                minlength: 8
+            },
+            
+            Address: {
+                required: true,
+                minlength: 5,
+            },
+           
+            Birthday: {
+                required: true,
+                
+            },
+            User: {
+              required: true,
+              
+            },
+            Email: {
+              required: true,
+              
+            },
+            Note: {
+                required: false,
+                
+            },
+        },
+        messages: {
+            Names: "Porfavor ingrese los nombres del empleado",
+            Last_names: "Porfavor ingrese los apellidos del empleado",
+            Phone: {
+                required: "Ingrese un numero para el empleado",
+                minlength: "El numero del empleado debe tener como minimo 8 digitos",
+            },
+            IdPersonal: {
+                required: "Porfavor ingrese el dpi del empleado",
+                minlength: "El dpi del empleado debe tener como minimo 13 digitos",
+                maxlength: "El dpi del empleado debe tener como maximo 13 digitos",
+            },
+            Address: {
+                required: "Porfavor ingrese la direccion del empleado",
+               
+            },
+             Birthday: {
+                required: "Porfavor ingrese la fecha de nacimiento del empleado",
+               
+            },
+            
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+            // Add the `invalid-feedback` class to the error element
+            error.addClass( "invalid-feedback" );
+            if ( element.prop( "type" ) === "checkbox" ) {
+                error.insertAfter( element.next( "label" ) );
+            } else {
+                error.insertAfter( element );
+            }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+            $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+        }
+    } );
+$( document ).ready(function() {
+ 
+$('[data-toggle="datepicker-year"]').datepicker({
+        startView: 2,
+    });
+$('[data-toggle="datepicker-year2"]').datepicker({
+        startView: 2,
+    });
+
+    setTimeout(function () {
+
+        $('#smartwizard').smartWizard({
+            selected: 0,
+            transitionEffect: 'fade',
+            toolbarSettings: {
+                toolbarPosition: 'none',
+            }
+
+        });
+
+        // External Button Events
+        $("#reset-btn").on("click", function () {
+            // Reset wizard
+            $('#smartwizard').smartWizard("reset");
+            return true;
+        });
+
+        $("#prev-btn").on("click", function () {
+            // Navigate previous
+            $('#smartwizard').smartWizard("prev");
+            return true;
+        });
+
+        $("#next-btn").on("click", function () {
+            // Navigate next
+            if($("#employeeForm").valid() == false ){
+                $("#employeeForm").valid();       
+              }else{
+                $('#smartwizard').smartWizard("next");
+              }
+            
+            return true;
+        });
+
+
+        
+
+
+        
+    }, 500);
+});
+
+</script>
+<script type="text/javascript">
+
+
+
+
+
+  $( document ).ready(function() {
+
+
+{%if mensajes %}
+     swal.fire({
+            text: '{{mensajes}}',
+            title: 'Creado exitosamente!',
+            type: 'success',
+        }).then(function () {
+       $('#smartwizard').smartWizard("reset");
+       return true;
+    })
+
+{%endif%}
+{%if errores %}
+     swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: '{{errores}}!',
+            footer: '{{ form.errors }}'
+        });
+{%endif%}
+    
+
+     setTimeout(function () {
+
+        $('#UserType').select2({
+            theme: "bootstrap4",
+            placeholder: "Seleccione un tipo de usuario",
+        });
+
+
+    }, 500);
+
+});
+
+
+</script>
+{% endblock %}

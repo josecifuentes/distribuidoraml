@@ -6,8 +6,8 @@ from django.utils import timezone
 class Distributor(models.Model):
 	Name = models.CharField(max_length=50,unique=True)
 	Descripcion = models.CharField(max_length=200)
-	Phone = models.CharField(max_length=10,blank=True, null=True)
-	Email = models.CharField(max_length=20,blank=True, null=True)
+	Phone = models.CharField(max_length=40,blank=True, null=True)
+	Email = models.CharField(max_length=50,blank=True, null=True)
 	Address = models.CharField(max_length=50,blank=True, null=True)
 	Create = models.DateTimeField(blank=True, null=True)
 	def publish(self):
@@ -82,11 +82,13 @@ class Employee(models.Model):
 	IdPersonal = models.CharField(max_length=50)
 	Phone = models.CharField(max_length=50)
 	Address = models.CharField(max_length=200)
-	Start_Work = models.DateTimeField(blank=True, null=True)
+	Email = models.CharField(max_length=50,blank=True, null=True)
+	Birthday = models.DateField(blank=True, null=True)
+	Start_Work = models.DateField(blank=True, null=True)
 	states = (
-		('inactive', 'Inactive'),
-		('active', 'Active'),
-		('register', 'register'),
+		('Inactivo', 'Inactivo'),
+		('Activo', 'Activo'),
+		('Registro', 'Registro'),
 		)
 	State = models.CharField(
 		max_length=10,
